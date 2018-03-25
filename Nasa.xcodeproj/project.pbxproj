@@ -14,6 +14,8 @@
 		A6B3E2842064473500451F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B3E2832064473500451F21 /* Assets.xcassets */; };
 		A6B3E2872064473500451F21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B3E2852064473500451F21 /* LaunchScreen.storyboard */; };
 		A6B3E2922064473500451F21 /* NasaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E2912064473500451F21 /* NasaTests.swift */; };
+		A6B3E29D2064512500451F21 /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E29C2064512500451F21 /* Network Manager.swift */; };
+		A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E29E206766EC00451F21 /* MarsPhoto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		A6B3E28D2064473500451F21 /* NasaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B3E2912064473500451F21 /* NasaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaTests.swift; sourceTree = "<group>"; };
 		A6B3E2932064473500451F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6B3E29C2064512500451F21 /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
+		A6B3E29E206766EC00451F21 /* MarsPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				A6B3E2792064473500451F21 /* AppDelegate.swift */,
 				A6B3E27B2064473500451F21 /* ViewController.swift */,
 				A6B3E27D2064473500451F21 /* Main.storyboard */,
+				A6B3E29C2064512500451F21 /* Network Manager.swift */,
+				A6B3E29E206766EC00451F21 /* MarsPhoto.swift */,
 				A6B3E2832064473500451F21 /* Assets.xcassets */,
 				A6B3E2852064473500451F21 /* LaunchScreen.storyboard */,
 				A6B3E2882064473500451F21 /* Info.plist */,
@@ -203,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6B3E27C2064473500451F21 /* ViewController.swift in Sources */,
+				A6B3E29D2064512500451F21 /* Network Manager.swift in Sources */,
 				A6B3E2822064473500451F21 /* Nasa.xcdatamodeld in Sources */,
 				A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */,
+				A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
