@@ -34,7 +34,9 @@ class NetworkManager {
            let decoder = JSONDecoder()
             if let marsArray = try? decoder.decode(MarsResults.self, from: responseData) {
                 
-                completion(marsArray.results, nil)
+
+                
+                completion(marsArray.photos, nil)
             } else {
                 
                 print("not decoded properly")
@@ -44,6 +46,8 @@ class NetworkManager {
             
         } .resume()
     }
+    
+    
     
     
 }

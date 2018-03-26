@@ -10,7 +10,7 @@ import Foundation
 
 struct MarsResults: Codable {
     
-    var results: [MarsPhoto]
+    var photos: [MarsPhoto]
 }
 
 struct MarsPhoto: Codable {
@@ -18,10 +18,12 @@ struct MarsPhoto: Codable {
     var imageUrl: String
     var date: String
     
+ 
     enum CodingKeys: String, CodingKey {
         
         case imageUrl = "img_src"
         case date = "earth_date"
     }
-    
+ 
+ 
 }
