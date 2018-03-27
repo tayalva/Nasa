@@ -38,13 +38,13 @@ class ViewController: UIViewController {
                 self.marsArray = fetchedInfo
             }
             OperationQueue.main.addOperation {
-               
+                Manager.shared.loadImage(with: URL(string: self.marsArray[0].imageUrl)!, into: self.marsImage)
             }
             
 
         }
     }
-
+/*
     func downloadImage() {
     
         let imageUrl = URL(string: marsArray[0].imageUrl)
@@ -77,6 +77,6 @@ class ViewController: UIViewController {
         
         downloadTask.resume()
     }
-
+*/
 }
 

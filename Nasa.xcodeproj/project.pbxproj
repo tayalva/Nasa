@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A684BE50206AB09700AEF025 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; };
+		A67A6409206AB5D200D27F94 /* Nuke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A684BE50206AB09700AEF025 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E2792064473500451F21 /* AppDelegate.swift */; };
 		A6B3E27C2064473500451F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E27B2064473500451F21 /* ViewController.swift */; };
 		A6B3E27F2064473500451F21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B3E27D2064473500451F21 /* Main.storyboard */; };
@@ -28,6 +29,19 @@
 			remoteInfo = Nasa;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A67A6408206AB5A700D27F94 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A67A6409206AB5D200D27F94 /* Nuke.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A684BE4F206AB09700AEF025 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
@@ -127,6 +141,7 @@
 				A6B3E2722064473500451F21 /* Sources */,
 				A6B3E2732064473500451F21 /* Frameworks */,
 				A6B3E2742064473500451F21 /* Resources */,
+				A67A6408206AB5A700D27F94 /* CopyFiles */,
 			);
 			buildRules = (
 			);
