@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Nuke
+
 
 class ViewController: UIViewController {
     
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
                 self.marsArray = fetchedInfo
             }
             OperationQueue.main.addOperation {
-                self.downloadImage()
+               
             }
             
 
@@ -44,9 +46,9 @@ class ViewController: UIViewController {
     }
 
     func downloadImage() {
-        
+    
         let imageUrl = URL(string: marsArray[0].imageUrl)
-        print(imageUrl!)
+        print(imageUrl)
         let session = URLSession(configuration: .default)
         let downloadTask = session.dataTask(with: imageUrl!) { (data, response, error) in
             
@@ -57,7 +59,11 @@ class ViewController: UIViewController {
                 if let response = response as? HTTPURLResponse {
                     if let imageData = data {
                         let image = UIImage(data: imageData)
-                        self.marsImage.image = image
+                        
+                        OperationQueue.main.addOperation {
+                            self.marsImage.image = image
+                        }
+                      
                     } else {
                         
                         print("not image dummy")

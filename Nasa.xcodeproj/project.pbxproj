@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A684BE50206AB09700AEF025 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; };
 		A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E2792064473500451F21 /* AppDelegate.swift */; };
 		A6B3E27C2064473500451F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E27B2064473500451F21 /* ViewController.swift */; };
 		A6B3E27F2064473500451F21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B3E27D2064473500451F21 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A684BE4F206AB09700AEF025 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		A6B3E2762064473500451F21 /* Nasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B3E2792064473500451F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6B3E27B2064473500451F21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A684BE50206AB09700AEF025 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +65,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A684BE4A2069B9DF00AEF025 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A684BE4F206AB09700AEF025 /* Nuke.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6B3E26D2064473500451F21 = {
 			isa = PBXGroup;
 			children = (
 				A6B3E2782064473500451F21 /* Nasa */,
 				A6B3E2902064473500451F21 /* NasaTests */,
 				A6B3E2772064473500451F21 /* Products */,
+				A684BE4A2069B9DF00AEF025 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -367,6 +379,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KNEDT6Y55K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Nasa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TaylorSmith.Nasa;
@@ -382,6 +398,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KNEDT6Y55K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Nasa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TaylorSmith.Nasa;
