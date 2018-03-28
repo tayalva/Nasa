@@ -8,8 +8,9 @@
 
 import UIKit
 import Nuke
+import MessageUI
 
-class MarsDetailViewController: UIViewController {
+class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
@@ -22,7 +23,7 @@ class MarsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     print(index)
+    textField.delegate = self
         
         let item = marsArray[index].imageUrl
         Manager.shared.loadImage(with: URL(string: item)!, into: imageView)
@@ -34,9 +35,30 @@ class MarsDetailViewController: UIViewController {
         Manager.shared.loadImage(with: URL(string: item)!, into: imageView)
         
        imageView.image = textToImage(drawText: textField.text!, inImage: imageView.image!, atPoint: CGPoint(x: 20, y: 20))
-        
-        
     }
+    
+ // emails the postcard to any email you want (only works on physcial device!)
+    @IBAction func emailButton(_ sender: Any) {
+        
+        if !MFMailComposeViewController.canSendMail() {
+            print("Darn. You can't send mail from this device")
+            return 
+        } else {
+            let imageData: Data = UIImagePNGRepresentation(imageView.image!)!
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["tay.smith@me.com"])
+            mail.setSubject("Incoming from Mars!")
+            mail.setMessageBody("<p>Here's a postcard from Mars!<p>", isHTML: true)
+            mail.addAttachmentData(imageData, mimeType: "image", fileName: "Postcard")
+            present(mail, animated: true)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
     
 // Method to overlay text onto the image
     
@@ -64,5 +86,29 @@ class MarsDetailViewController: UIViewController {
         
         return newImage!
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+            
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
