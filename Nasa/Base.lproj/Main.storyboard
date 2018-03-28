@@ -130,22 +130,47 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad_background_port_x2" translatesAutoresizingMaskIntoConstraints="NO" id="kZ5-fE-98m">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ee-Wv-7fd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ee-Wv-7fd">
                                 <rect key="frame" x="20" y="291" width="728" height="443"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a message to your postcard!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbX-Ye-nCB">
+                                <rect key="frame" x="20" y="742" width="728" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75P-c5-Wn4">
+                                <rect key="frame" x="20" y="790" width="310" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.35578557849999998" green="0.71963495020000001" blue="0.87009733919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <state key="normal" title="Add Text">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTextButton:" destination="tr0-IY-RkH" eventType="touchUpInside" id="aMt-yp-hUp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1ee-Wv-7fd" firstAttribute="centerX" secondItem="Htc-KC-InD" secondAttribute="centerX" id="CA0-av-6w9"/>
+                            <constraint firstItem="1ee-Wv-7fd" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" constant="20" id="I3t-mD-nsY"/>
                             <constraint firstItem="kZ5-fE-98m" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" id="LSy-tz-3Ok"/>
+                            <constraint firstItem="6PX-cy-EBv" firstAttribute="bottom" secondItem="1ee-Wv-7fd" secondAttribute="bottom" constant="290" id="QCE-ny-XSg"/>
+                            <constraint firstItem="6PX-cy-EBv" firstAttribute="trailing" secondItem="1ee-Wv-7fd" secondAttribute="trailing" constant="20" id="UEU-4x-DXf"/>
+                            <constraint firstItem="1ee-Wv-7fd" firstAttribute="top" secondItem="6PX-cy-EBv" secondAttribute="top" constant="227" id="ZRb-i9-xHt"/>
                             <constraint firstItem="kZ5-fE-98m" firstAttribute="bottom" secondItem="6PX-cy-EBv" secondAttribute="bottom" id="nRK-qy-PmJ"/>
                             <constraint firstItem="kZ5-fE-98m" firstAttribute="top" secondItem="Htc-KC-InD" secondAttribute="top" id="psX-Jr-KVT"/>
                             <constraint firstItem="kZ5-fE-98m" firstAttribute="trailing" secondItem="6PX-cy-EBv" secondAttribute="trailing" id="wrd-p3-kCe"/>
+                            <constraint firstItem="1ee-Wv-7fd" firstAttribute="centerY" secondItem="Htc-KC-InD" secondAttribute="centerY" id="zWL-0R-od2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6PX-cy-EBv"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="1ee-Wv-7fd" id="1U1-6l-rgV"/>
+                        <outlet property="textField" destination="sbX-Ye-nCB" id="XUE-LH-obU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAg-Vd-yrw" userLabel="First Responder" sceneMemberID="firstResponder"/>

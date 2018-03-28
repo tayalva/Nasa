@@ -12,6 +12,9 @@ import Nuke
 class MarsDetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textField: UITextField!
+    
+    
     var marsArray: [MarsPhoto] = []
     
     var index: Int!
@@ -26,19 +29,40 @@ class MarsDetailViewController: UIViewController {
     }
 
 
-    
-
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addTextButton(_ sender: Any) {
+        let item = marsArray[index].imageUrl
+        Manager.shared.loadImage(with: URL(string: item)!, into: imageView)
+        
+       imageView.image = textToImage(drawText: textField.text!, inImage: imageView.image!, atPoint: CGPoint(x: 20, y: 20))
+        
+        
     }
-    */
+    
+// Method to overlay text onto the image
+    
+    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
+        
+        
+        let textColor = UIColor.white
+        let textFont = UIFont(name: "Helvetica Bold", size: 40)!
+        
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+        
+        let textFontAttributes = [
+            NSAttributedStringKey.font: textFont,
+            NSAttributedStringKey.foregroundColor: textColor,
+            ] as [NSAttributedStringKey : Any]
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        
+        let rect = CGRect(origin: point, size: image.size)
+        text.draw(in: rect, withAttributes: textFontAttributes)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
 
 }
