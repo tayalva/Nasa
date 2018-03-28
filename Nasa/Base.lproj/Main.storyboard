@@ -62,7 +62,7 @@
                                     <inset key="sectionInset" minX="23" minY="10" maxX="23" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="pkA-UW-Jep" customClass="CustomCollectionViewCell" customModule="Nasa" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="cell" id="pkA-UW-Jep" customClass="CustomCollectionViewCell" customModule="Nasa" customModuleProvider="target">
                                         <rect key="frame" x="23" y="10" width="350" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -112,11 +112,45 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eNb-Fe-sOq" id="IEe-ps-mwP"/>
+                        <segue destination="tr0-IY-RkH" kind="show" identifier="marsPhotoDetailSegue" id="Vyv-WZ-zCB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F94-gh-9Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1248.4375" y="133.59375"/>
+        </scene>
+        <!--Mars Detail View Controller-->
+        <scene sceneID="k4g-qp-IHk">
+            <objects>
+                <viewController id="tr0-IY-RkH" customClass="MarsDetailViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Htc-KC-InD">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad_background_port_x2" translatesAutoresizingMaskIntoConstraints="NO" id="kZ5-fE-98m">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ee-Wv-7fd">
+                                <rect key="frame" x="20" y="291" width="728" height="443"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kZ5-fE-98m" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" id="LSy-tz-3Ok"/>
+                            <constraint firstItem="kZ5-fE-98m" firstAttribute="bottom" secondItem="6PX-cy-EBv" secondAttribute="bottom" id="nRK-qy-PmJ"/>
+                            <constraint firstItem="kZ5-fE-98m" firstAttribute="top" secondItem="Htc-KC-InD" secondAttribute="top" id="psX-Jr-KVT"/>
+                            <constraint firstItem="kZ5-fE-98m" firstAttribute="trailing" secondItem="6PX-cy-EBv" secondAttribute="trailing" id="wrd-p3-kCe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6PX-cy-EBv"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1ee-Wv-7fd" id="1U1-6l-rgV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAg-Vd-yrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1935.9375" y="133.59375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H8I-6b-lR7">

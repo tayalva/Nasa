@@ -10,6 +10,7 @@
 		A67A6409206AB5D200D27F94 /* Nuke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640A206B0AFB00D27F94 /* MarsViewController.swift */; };
 		A67A640D206B56EB00D27F94 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */; };
+		A67A640F206C316900D27F94 /* MarsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640E206C316900D27F94 /* MarsDetailViewController.swift */; };
 		A684BE50206AB09700AEF025 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E2792064473500451F21 /* AppDelegate.swift */; };
 		A6B3E27C2064473500451F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E27B2064473500451F21 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		A67A640A206B0AFB00D27F94 /* MarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsViewController.swift; sourceTree = "<group>"; };
 		A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		A67A640E206C316900D27F94 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
 		A684BE4F206AB09700AEF025 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		A6B3E2762064473500451F21 /* Nasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B3E2792064473500451F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				A6B3E2792064473500451F21 /* AppDelegate.swift */,
 				A6B3E27B2064473500451F21 /* ViewController.swift */,
 				A6B3E27D2064473500451F21 /* Main.storyboard */,
+				A67A640E206C316900D27F94 /* MarsDetailViewController.swift */,
 				A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */,
 				A67A640A206B0AFB00D27F94 /* MarsViewController.swift */,
 				A6B3E29C2064512500451F21 /* Network Manager.swift */,
@@ -247,6 +250,7 @@
 				A6B3E2822064473500451F21 /* Nasa.xcdatamodeld in Sources */,
 				A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */,
 				A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */,
+				A67A640F206C316900D27F94 /* MarsDetailViewController.swift in Sources */,
 				A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
