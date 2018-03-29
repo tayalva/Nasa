@@ -115,12 +115,12 @@
 		A6B3E2782064473500451F21 /* Nasa */ = {
 			isa = PBXGroup;
 			children = (
+				A6B3E27D2064473500451F21 /* Main.storyboard */,
 				A6B3E2792064473500451F21 /* AppDelegate.swift */,
 				A6B3E27B2064473500451F21 /* ViewController.swift */,
-				A6B3E27D2064473500451F21 /* Main.storyboard */,
+				A67A640A206B0AFB00D27F94 /* MarsViewController.swift */,
 				A67A640E206C316900D27F94 /* MarsDetailViewController.swift */,
 				A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */,
-				A67A640A206B0AFB00D27F94 /* MarsViewController.swift */,
 				A6B3E29C2064512500451F21 /* Network Manager.swift */,
 				A6B3E29E206766EC00451F21 /* MarsPhoto.swift */,
 				A6B3E2832064473500451F21 /* Assets.xcassets */,
