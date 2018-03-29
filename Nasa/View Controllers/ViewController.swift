@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Nuke
+
 
 
 class ViewController: UIViewController {
@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         
     }
 
+    @IBAction func earthButton(_ sender: Any) {
+        
+        performSegue(withIdentifier: "showEarthImageViewController", sender: nil)
+    }
     
 
 

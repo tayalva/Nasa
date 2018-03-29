@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A633E95C206D9F7300E7B393 /* EarthImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633E95B206D9F7300E7B393 /* EarthImageViewController.swift */; };
 		A67A6409206AB5D200D27F94 /* Nuke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640A206B0AFB00D27F94 /* MarsViewController.swift */; };
 		A67A640D206B56EB00D27F94 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */; };
@@ -21,6 +22,7 @@
 		A6B3E2922064473500451F21 /* NasaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E2912064473500451F21 /* NasaTests.swift */; };
 		A6B3E29D2064512500451F21 /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E29C2064512500451F21 /* Network Manager.swift */; };
 		A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E29E206766EC00451F21 /* MarsPhoto.swift */; };
+		A6CA942D206D971100CF8008 /* EarthImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CA942C206D971100CF8008 /* EarthImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A633E95B206D9F7300E7B393 /* EarthImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthImageViewController.swift; sourceTree = "<group>"; };
 		A67A640A206B0AFB00D27F94 /* MarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsViewController.swift; sourceTree = "<group>"; };
 		A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A67A640E206C316900D27F94 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		A6B3E2932064473500451F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6B3E29C2064512500451F21 /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
 		A6B3E29E206766EC00451F21 /* MarsPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
+		A6CA942C206D971100CF8008 /* EarthImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A633E95D206D9FAB00E7B393 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6B3E27B2064473500451F21 /* ViewController.swift */,
+				A67A640A206B0AFB00D27F94 /* MarsViewController.swift */,
+				A67A640E206C316900D27F94 /* MarsDetailViewController.swift */,
+				A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */,
+				A633E95B206D9F7300E7B393 /* EarthImageViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A633E95E206DA24B00E7B393 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A6B3E29E206766EC00451F21 /* MarsPhoto.swift */,
+				A6CA942C206D971100CF8008 /* EarthImage.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		A684BE4A2069B9DF00AEF025 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				A6B3E27D2064473500451F21 /* Main.storyboard */,
+				A633E95D206D9FAB00E7B393 /* View Controllers */,
+				A633E95E206DA24B00E7B393 /* Objects */,
 				A6B3E2792064473500451F21 /* AppDelegate.swift */,
-				A6B3E27B2064473500451F21 /* ViewController.swift */,
-				A67A640A206B0AFB00D27F94 /* MarsViewController.swift */,
-				A67A640E206C316900D27F94 /* MarsDetailViewController.swift */,
-				A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */,
 				A6B3E29C2064512500451F21 /* Network Manager.swift */,
-				A6B3E29E206766EC00451F21 /* MarsPhoto.swift */,
 				A6B3E2832064473500451F21 /* Assets.xcassets */,
 				A6B3E2852064473500451F21 /* LaunchScreen.storyboard */,
 				A6B3E2882064473500451F21 /* Info.plist */,
@@ -249,9 +271,11 @@
 				A6B3E29D2064512500451F21 /* Network Manager.swift in Sources */,
 				A6B3E2822064473500451F21 /* Nasa.xcdatamodeld in Sources */,
 				A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */,
+				A633E95C206D9F7300E7B393 /* EarthImageViewController.swift in Sources */,
 				A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */,
 				A67A640F206C316900D27F94 /* MarsDetailViewController.swift in Sources */,
 				A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */,
+				A6CA942D206D971100CF8008 /* EarthImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

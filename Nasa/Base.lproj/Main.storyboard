@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8de-Po-XiE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8de-Po-XiE">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
                                 <state key="normal" title="Eye In The Sky"/>
                                 <connections>
-                                    <action selector="marsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kNJ-AH-YCO"/>
+                                    <action selector="earthButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uS-33-PBW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -46,11 +46,12 @@
                     <navigationItem key="navigationItem" id="RCi-df-pVg"/>
                     <connections>
                         <segue destination="7Cf-LJ-Awy" kind="show" identifier="showMarsViewController" id="SOv-TN-GbS"/>
+                        <segue destination="I66-tJ-Del" kind="show" identifier="showEarthImageViewController" id="mVe-bq-IVu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="579.85611510791375" y="133.27338129496403"/>
+            <point key="canvasLocation" x="493" y="469"/>
         </scene>
         <!--Mars View Controller-->
         <scene sceneID="pUc-Hv-GXj">
@@ -60,9 +61,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad_background_port_x2" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-Al-yTO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-Al-yTO">
                                 <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-8T-S7y">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IAg-7n-UCk">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-Fe-sOq">
                                 <rect key="frame" x="0.0" y="181" width="768" height="843"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,6 +125,10 @@
                             <constraint firstItem="eNb-Fe-sOq" firstAttribute="trailing" secondItem="aVe-gg-H0q" secondAttribute="trailing" id="IbJ-GQ-Crr"/>
                             <constraint firstItem="qmq-Al-yTO" firstAttribute="bottom" secondItem="aVe-gg-H0q" secondAttribute="bottom" id="LfK-73-NzQ"/>
                             <constraint firstItem="eNb-Fe-sOq" firstAttribute="bottom" secondItem="aVe-gg-H0q" secondAttribute="bottom" id="Nte-TY-gb6"/>
+                            <constraint firstItem="P2B-8T-S7y" firstAttribute="trailing" secondItem="aVe-gg-H0q" secondAttribute="trailing" id="Op3-l9-T5y"/>
+                            <constraint firstItem="P2B-8T-S7y" firstAttribute="top" secondItem="8eJ-QH-0Ag" secondAttribute="top" id="Wss-Va-ne8"/>
+                            <constraint firstItem="P2B-8T-S7y" firstAttribute="bottom" secondItem="aVe-gg-H0q" secondAttribute="bottom" id="Xqc-Qw-9RT"/>
+                            <constraint firstItem="P2B-8T-S7y" firstAttribute="leading" secondItem="aVe-gg-H0q" secondAttribute="leading" id="Yrx-nh-V5j"/>
                             <constraint firstItem="eNb-Fe-sOq" firstAttribute="top" secondItem="aVe-gg-H0q" secondAttribute="top" constant="117" id="diB-1Y-zSU"/>
                             <constraint firstItem="qmq-Al-yTO" firstAttribute="leading" secondItem="aVe-gg-H0q" secondAttribute="leading" id="y4s-Bt-7UA"/>
                         </constraints>
@@ -130,6 +143,54 @@
             </objects>
             <point key="canvasLocation" x="1248.4375" y="133.59375"/>
         </scene>
+        <!--Earth Image View Controller-->
+        <scene sceneID="P7D-o8-hOc">
+            <objects>
+                <viewController id="I66-tJ-Del" customClass="EarthImageViewController" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="enn-Rg-5dR">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="z6F-Lo-TCm">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUH-o6-Xwf">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="c4E-9d-mVR">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hBA-n2-gok">
+                                            <rect key="frame" x="52" y="304" width="665" height="416"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="z6F-Lo-TCm" firstAttribute="leading" secondItem="phD-Kc-7Ce" secondAttribute="leading" id="0ol-Zb-YKk"/>
+                            <constraint firstItem="aUH-o6-Xwf" firstAttribute="top" secondItem="enn-Rg-5dR" secondAttribute="top" id="7Wj-Ue-2W1"/>
+                            <constraint firstItem="aUH-o6-Xwf" firstAttribute="leading" secondItem="phD-Kc-7Ce" secondAttribute="leading" id="FA7-hi-WeJ"/>
+                            <constraint firstItem="aUH-o6-Xwf" firstAttribute="trailing" secondItem="phD-Kc-7Ce" secondAttribute="trailing" id="IBD-zg-5FS"/>
+                            <constraint firstItem="z6F-Lo-TCm" firstAttribute="top" secondItem="enn-Rg-5dR" secondAttribute="top" id="UQh-CJ-ZcI"/>
+                            <constraint firstItem="aUH-o6-Xwf" firstAttribute="bottom" secondItem="phD-Kc-7Ce" secondAttribute="bottom" id="aTm-DE-Ppt"/>
+                            <constraint firstItem="z6F-Lo-TCm" firstAttribute="bottom" secondItem="phD-Kc-7Ce" secondAttribute="bottom" id="fe1-hy-IFh"/>
+                            <constraint firstItem="z6F-Lo-TCm" firstAttribute="trailing" secondItem="phD-Kc-7Ce" secondAttribute="trailing" id="nBR-9X-YEe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="phD-Kc-7Ce"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="hBA-n2-gok" id="HQs-8S-eud"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCX-57-yRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1247.65625" y="808.59375"/>
+        </scene>
         <!--Mars Detail View Controller-->
         <scene sceneID="k4g-qp-IHk">
             <objects>
@@ -138,9 +199,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad_background_port_x2" translatesAutoresizingMaskIntoConstraints="NO" id="kZ5-fE-98m">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="kZ5-fE-98m">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rde-pb-EEE">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NES-hF-aNK">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ee-Wv-7fd">
                                 <rect key="frame" x="20" y="291" width="728" height="443"/>
                             </imageView>
@@ -178,7 +247,10 @@
                             <constraint firstItem="6PX-cy-EBv" firstAttribute="trailing" secondItem="75P-c5-Wn4" secondAttribute="trailing" constant="20" id="3cM-c8-OsW"/>
                             <constraint firstItem="75P-c5-Wn4" firstAttribute="top" secondItem="sbX-Ye-nCB" secondAttribute="bottom" constant="8" id="4zk-rp-bU0"/>
                             <constraint firstAttribute="bottomMargin" secondItem="sbX-Ye-nCB" secondAttribute="bottom" constant="242" id="6qd-OI-V2v"/>
+                            <constraint firstItem="rde-pb-EEE" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" id="6vU-kk-awW"/>
+                            <constraint firstItem="rde-pb-EEE" firstAttribute="bottom" secondItem="6PX-cy-EBv" secondAttribute="bottom" id="8qk-KG-G1H"/>
                             <constraint firstItem="1ee-Wv-7fd" firstAttribute="centerX" secondItem="Htc-KC-InD" secondAttribute="centerX" id="CA0-av-6w9"/>
+                            <constraint firstItem="rde-pb-EEE" firstAttribute="top" secondItem="Htc-KC-InD" secondAttribute="top" id="Dcn-VI-RDL"/>
                             <constraint firstItem="oam-b7-RfT" firstAttribute="top" secondItem="75P-c5-Wn4" secondAttribute="bottom" constant="8" id="Euo-1W-9zm"/>
                             <constraint firstItem="1ee-Wv-7fd" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" constant="20" id="I3t-mD-nsY"/>
                             <constraint firstItem="oam-b7-RfT" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" constant="20" id="Kum-fd-OU7"/>
@@ -191,6 +263,7 @@
                             <constraint firstItem="1ee-Wv-7fd" firstAttribute="top" secondItem="6PX-cy-EBv" secondAttribute="top" constant="227" id="ZRb-i9-xHt"/>
                             <constraint firstItem="sbX-Ye-nCB" firstAttribute="top" secondItem="1ee-Wv-7fd" secondAttribute="bottom" constant="8" id="gVR-ag-Io3"/>
                             <constraint firstItem="sbX-Ye-nCB" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" constant="20" id="iUb-uB-Ka8"/>
+                            <constraint firstItem="rde-pb-EEE" firstAttribute="trailing" secondItem="6PX-cy-EBv" secondAttribute="trailing" id="jE8-eA-Yks"/>
                             <constraint firstItem="75P-c5-Wn4" firstAttribute="leading" secondItem="6PX-cy-EBv" secondAttribute="leading" constant="20" id="nLX-GC-fsF"/>
                             <constraint firstItem="kZ5-fE-98m" firstAttribute="bottom" secondItem="6PX-cy-EBv" secondAttribute="bottom" id="nRK-qy-PmJ"/>
                             <constraint firstItem="kZ5-fE-98m" firstAttribute="top" secondItem="Htc-KC-InD" secondAttribute="top" id="psX-Jr-KVT"/>
@@ -225,10 +298,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soY-Gd-dZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="134"/>
+            <point key="canvasLocation" x="-220" y="469"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ipad_background_port_x2" width="2048" height="2732"/>
+        <image name="Background" width="400" height="600"/>
+        <image name="spaceBackground2" width="1280" height="1024"/>
     </resources>
 </document>

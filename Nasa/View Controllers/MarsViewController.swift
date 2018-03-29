@@ -30,6 +30,7 @@ class MarsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         networkRequest()
+        
     }
 
 
