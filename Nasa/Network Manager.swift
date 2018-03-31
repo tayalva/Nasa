@@ -14,7 +14,7 @@ class NetworkManager {
     var apiKey = "2kSGhaEg9bl1RZpsb2jLlqMxqXwMLrSprNXr5eMG"
     
     var marsRoverUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key="
-    var earthUrl = "https://api.nasa.gov/planetary/earth/imagery"
+    var earthUrl = "https://api.nasa.gov/planetary/earth/imagery/"
     
     func fetchMarsRover(completion: @escaping ([MarsPhoto]?, Error?)-> Void) {
         
@@ -48,7 +48,7 @@ class NetworkManager {
     func fetchEarthImage(latitude: Float, longitude: Float, completion: @escaping (EarthImage?, Error?) -> Void) {
     
     
-        let url = "\(earthUrl)?Ion=\(longitude)&lat=\(latitude)&date=2014-02-01&cloud_score=false&api_key=\(apiKey)"
+        let url = "\(earthUrl)?lon=\(longitude)&lat=\(latitude)&date=2014-02-01&cloud_score=false&api_key=\(apiKey)"
         
         let apiUrl = URL(string: url)!
         
@@ -76,10 +76,38 @@ class NetworkManager {
             }
             
         } .resume()
-    
-    
     }
 
+    
+    func fetchApodImage(completion: @escaping (ApodImage?, Error?)-> Void) {
+        
+        let url = "https://api.nasa.gov/planetary/apod?api_key=\(apiKey)"
+        let apiUrl = URL(string: url)!
+        
+        
+        URLSession.shared.dataTask(with: apiUrl) {
+            (data, response, error) in
+            
+            guard let responseData = data else {
+                print("no data from APOD")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            if let apodImage = try? decoder.decode(ApodImage.self, from: responseData) {
+                
+                print(apodImage.hdurl)
+                print(apodImage.title)
+                completion(apodImage, nil)
+            } else {
+                print("APOD not decoded properly")
+            }
+            
+            
+        } .resume()
+        
+    }
     
 }
 

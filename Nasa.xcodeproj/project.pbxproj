@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A633E95C206D9F7300E7B393 /* EarthImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633E95B206D9F7300E7B393 /* EarthImageViewController.swift */; };
+		A633E960206F63CF00E7B393 /* ApodImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633E95F206F63CF00E7B393 /* ApodImage.swift */; };
 		A67A6409206AB5D200D27F94 /* Nuke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A684BE4F206AB09700AEF025 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640A206B0AFB00D27F94 /* MarsViewController.swift */; };
 		A67A640D206B56EB00D27F94 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		A633E95B206D9F7300E7B393 /* EarthImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthImageViewController.swift; sourceTree = "<group>"; };
+		A633E95F206F63CF00E7B393 /* ApodImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApodImage.swift; sourceTree = "<group>"; };
 		A67A640A206B0AFB00D27F94 /* MarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsViewController.swift; sourceTree = "<group>"; };
 		A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A67A640E206C316900D27F94 /* MarsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsDetailViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				A6B3E29E206766EC00451F21 /* MarsPhoto.swift */,
 				A6CA942C206D971100CF8008 /* EarthImage.swift */,
+				A633E95F206F63CF00E7B393 /* ApodImage.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */,
 				A633E95C206D9F7300E7B393 /* EarthImageViewController.swift in Sources */,
 				A6B3E27A2064473500451F21 /* AppDelegate.swift in Sources */,
+				A633E960206F63CF00E7B393 /* ApodImage.swift in Sources */,
 				A67A640F206C316900D27F94 /* MarsDetailViewController.swift in Sources */,
 				A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */,
 				A6CA942D206D971100CF8008 /* EarthImage.swift in Sources */,

@@ -26,7 +26,7 @@ class EarthImageViewController: UIViewController {
     func networkRequest() {
         
         
-        networkCall.fetchEarthImage(latitude: 21.00, longitude: 21.00, completion: {
+        networkCall.fetchEarthImage(latitude: 33.655659, longitude: -118.003581, completion: {
             (fetchedInfo, error) in
          
             
@@ -36,7 +36,6 @@ class EarthImageViewController: UIViewController {
             }
             OperationQueue.main.addOperation {
                 
-                print(self.earthPhoto)
                 
                 Manager.shared.loadImage(with: URL(string: self.earthPhoto.url)!, into: self.imageView)
               

@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import Nuke
+
 
 
 
 class ViewController: UIViewController {
     
-
+    
+      let networkCall = NetworkManager()
+      var apodPhoto: ApodImage!
+    
+    @IBOutlet weak var photoLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
+        networkRequest()
         
      
     }
@@ -33,6 +42,26 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "showEarthImageViewController", sender: nil)
     }
     
+    
+    func networkRequest() {
+        
+        
+        networkCall.fetchApodImage { ( fetchedInfo, error) in
+            
+            if let fetchedInfo = fetchedInfo {
+                
+                self.apodPhoto = fetchedInfo
+            }
+            OperationQueue.main.addOperation {
+                
+                Manager.shared.loadImage(with: URL(string: self.apodPhoto.hdurl)!, into: self.imageView)
+                self.photoLabel.text = self.apodPhoto.title
+            
+            }
+            
+            
+        }
+    }
 
 
 }

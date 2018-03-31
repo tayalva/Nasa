@@ -13,7 +13,6 @@ import Foundation
 
 struct EarthImage: Codable {
     
-    var date: Date
     var url: String
     
 }
