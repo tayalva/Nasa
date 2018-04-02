@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
       let networkCall = NetworkManager()
       var apodPhoto: ApodImage!
+
     
     @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -24,13 +25,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+   
        
         networkRequest()
         
      
     }
 
+    @IBAction func saveImageButton(_ sender: Any) {
+        
+        let imageData = UIImagePNGRepresentation(imageView.image!)
+        let compressedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+        
+    }
     @IBAction func marsButton(_ sender: Any) {
         
         performSegue(withIdentifier: "showMarsViewController", sender: nil)
@@ -56,6 +65,7 @@ class ViewController: UIViewController {
                 
                 Manager.shared.loadImage(with: URL(string: self.apodPhoto.hdurl)!, into: self.imageView)
                 self.photoLabel.text = self.apodPhoto.title
+               
             
             }
             
@@ -65,4 +75,5 @@ class ViewController: UIViewController {
 
 
 }
+
 
