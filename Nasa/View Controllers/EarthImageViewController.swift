@@ -34,12 +34,9 @@ class EarthImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
-        
-      locationManager.startUpdatingLocation()
-        
-      
-        
+        locationManager.startUpdatingLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         
        resultsSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -55,41 +52,37 @@ class EarthImageViewController: UIViewController {
         locationSearchTable.handleMapSearchDelegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-       
 
-    }
     @IBAction func locationGoButton(_ sender: Any) {
         
-    latitude = Float(latTextField.text!)
-    longitude = Float(longTextField.text!)
         
+        
+        latitude = Float(latTextField.text!)
+        longitude = Float(longTextField.text!)
         networkRequest()
         
     }
     
     func networkRequest() {
         
-        
+        if latTextField.text == "" || longTextField.text == "" || latitude == nil || longitude == nil {
+            
+            print("enter something doofus!")
+            
+        } else {
         networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
          
-            
             if let fetchedInfo = fetchedInfo {
-                
                 self.earthPhoto = fetchedInfo
             }
             OperationQueue.main.addOperation {
-                
-                
                 Manager.shared.loadImage(with: URL(string: self.earthPhoto.url)!, into: self.imageView)
-              
             }
-            
-            
+   
         }
     )}
-
+    }
 }
 
 extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
@@ -97,8 +90,8 @@ extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
     func passCoordinates(_ location: MKPlacemark) {
         latitude = Float(location.coordinate.latitude)
         longitude = Float(location.coordinate.longitude)
-       latTextField.text = "\(location.coordinate.latitude)"
-       longTextField.text = "\(location.coordinate.longitude)"
+        latTextField.text = "\(location.coordinate.latitude)"
+        longTextField.text = "\(location.coordinate.longitude)"
         networkRequest()
     }
 }

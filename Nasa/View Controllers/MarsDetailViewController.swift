@@ -42,6 +42,15 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
         
         if !MFMailComposeViewController.canSendMail() {
             print("Darn. You can't send mail from this device")
+            
+            let alert = UIAlertController(title: "Ruh Roh!", message: "Your device doesn't allow for email to be sent!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
+                
+            })
+            
+            self.present(alert, animated: true, completion: nil)
+            
             return 
         } else {
             let imageData: Data = UIImagePNGRepresentation(imageView.image!)!
