@@ -8,25 +8,67 @@
 
 import UIKit
 import Nuke
+import MapKit
+import CoreLocation
+
+protocol HandleMapSearch {
+    
+   func passCoordinates(_ location: MKPlacemark)
+    
+}
 
 class EarthImageViewController: UIViewController {
     
     let networkCall = NetworkManager()
     var earthPhoto: EarthImage!
+    var latitude: Float!
+    var longitude: Float!
+    var resultsSearchController: UISearchController? = nil
+    let locationManager = CLLocationManager()
 
+    @IBOutlet weak var latTextField: UITextField!
+    @IBOutlet weak var longTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      locationManager.startUpdatingLocation()
+        
+      
+        
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        
+       resultsSearchController = UISearchController(searchResultsController: locationSearchTable)
+       resultsSearchController?.searchResultsUpdater = locationSearchTable
+        let searchBar = resultsSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search here!"
+        navigationItem.titleView = resultsSearchController?.searchBar
+        resultsSearchController?.hidesNavigationBarDuringPresentation = false
+        resultsSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+
+    }
+    @IBAction func locationGoButton(_ sender: Any) {
+        
+    latitude = Float(latTextField.text!)
+    longitude = Float(longTextField.text!)
         
         networkRequest()
+        
     }
-
+    
     func networkRequest() {
         
         
-        networkCall.fetchEarthImage(latitude: 33.655659, longitude: -118.003581, completion: {
+        networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
          
             
@@ -44,8 +86,13 @@ class EarthImageViewController: UIViewController {
             
         }
     )}
+
+}
+
+extension EarthImageViewController: HandleMapSearch {
     
-
-
-
+    func passCoordinates(_ location: MKPlacemark) {
+       latTextField.text = "\(location.coordinate.latitude)"
+       longTextField.text = "\(location.coordinate.longitude)"
+    }
 }

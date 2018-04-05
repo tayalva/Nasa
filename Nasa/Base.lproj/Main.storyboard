@@ -263,6 +263,9 @@
                                             <state key="normal" title="Go">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="locationGoButton:" destination="I66-tJ-Del" eventType="touchUpInside" id="stI-to-PUl"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eye In The Sky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82X-f1-Src">
                                             <rect key="frame" x="169" y="251" width="431" height="90"/>
@@ -309,11 +312,41 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="hBA-n2-gok" id="HQs-8S-eud"/>
+                        <outlet property="latTextField" destination="i4M-sp-CpK" id="LCc-Ns-6Cx"/>
+                        <outlet property="longTextField" destination="BwF-D8-6G0" id="hH5-MW-Ja2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCX-57-yRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1247.65625" y="808.59375"/>
+        </scene>
+        <!--Location Search Table-->
+        <scene sceneID="j8E-60-oBp">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="y6c-aP-d8H" customClass="LocationSearchTable" customModule="Nasa" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Ny-Qn-ZTp">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="uHa-mx-3ud">
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uHa-mx-3ud" id="RB8-31-C9L">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="y6c-aP-d8H" id="dZM-Sd-Ezc"/>
+                            <outlet property="delegate" destination="y6c-aP-d8H" id="8TN-pt-QXv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEX-sN-Dch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="809"/>
         </scene>
         <!--Mars Detail View Controller-->
         <scene sceneID="k4g-qp-IHk">

@@ -24,6 +24,7 @@
 		A6B3E29D2064512500451F21 /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E29C2064512500451F21 /* Network Manager.swift */; };
 		A6B3E29F206766EC00451F21 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3E29E206766EC00451F21 /* MarsPhoto.swift */; };
 		A6CA942D206D971100CF8008 /* EarthImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CA942C206D971100CF8008 /* EarthImage.swift */; };
+		A6D1315120769F17007ADD7E /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1315020769F17007ADD7E /* LocationSearchTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		A6B3E29C2064512500451F21 /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
 		A6B3E29E206766EC00451F21 /* MarsPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		A6CA942C206D971100CF8008 /* EarthImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthImage.swift; sourceTree = "<group>"; };
+		A6D1315020769F17007ADD7E /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				A67A640E206C316900D27F94 /* MarsDetailViewController.swift */,
 				A67A640C206B56EB00D27F94 /* CustomCollectionViewCell.swift */,
 				A633E95B206D9F7300E7B393 /* EarthImageViewController.swift */,
+				A6D1315020769F17007ADD7E /* LocationSearchTable.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				A6B3E27C2064473500451F21 /* ViewController.swift in Sources */,
 				A67A640D206B56EB00D27F94 /* CustomCollectionViewCell.swift in Sources */,
 				A6B3E29D2064512500451F21 /* Network Manager.swift in Sources */,
+				A6D1315120769F17007ADD7E /* LocationSearchTable.swift in Sources */,
 				A6B3E2822064473500451F21 /* Nasa.xcdatamodeld in Sources */,
 				A67A640B206B0AFB00D27F94 /* MarsViewController.swift in Sources */,
 				A633E95C206D9F7300E7B393 /* EarthImageViewController.swift in Sources */,
