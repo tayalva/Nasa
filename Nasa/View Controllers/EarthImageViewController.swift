@@ -35,6 +35,7 @@ class EarthImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        
       locationManager.startUpdatingLocation()
         
       
@@ -50,6 +51,8 @@ class EarthImageViewController: UIViewController {
         resultsSearchController?.hidesNavigationBarDuringPresentation = false
         resultsSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        
+        locationSearchTable.handleMapSearchDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,9 +95,10 @@ class EarthImageViewController: UIViewController {
 extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
     
     func passCoordinates(_ location: MKPlacemark) {
-        print(location)
-        print("hey this is being executed! ************************************************")
+        latitude = Float(location.coordinate.latitude)
+        longitude = Float(location.coordinate.longitude)
        latTextField.text = "\(location.coordinate.latitude)"
        longTextField.text = "\(location.coordinate.longitude)"
+        networkRequest()
     }
 }
