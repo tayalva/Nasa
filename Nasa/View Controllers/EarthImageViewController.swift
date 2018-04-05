@@ -34,7 +34,7 @@ class EarthImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        locationManager.delegate = self
       locationManager.startUpdatingLocation()
         
       
@@ -89,9 +89,11 @@ class EarthImageViewController: UIViewController {
 
 }
 
-extension EarthImageViewController: HandleMapSearch {
+extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
     
     func passCoordinates(_ location: MKPlacemark) {
+        print(location)
+        print("hey this is being executed! ************************************************")
        latTextField.text = "\(location.coordinate.latitude)"
        longTextField.text = "\(location.coordinate.longitude)"
     }
