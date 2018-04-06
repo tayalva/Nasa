@@ -36,6 +36,7 @@ class EarthImageViewController: UIViewController {
         super.viewDidLoad()
         
         locationManager.delegate = self
+        
         locationManager.startUpdatingLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         
@@ -48,8 +49,11 @@ class EarthImageViewController: UIViewController {
         resultsSearchController?.hidesNavigationBarDuringPresentation = false
         resultsSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+         locationSearchTable.handleMapSearchDelegate = self
+        latTextField.keyboardType = .decimalPad
+        longTextField.keyboardType = .decimalPad
         
-        locationSearchTable.handleMapSearchDelegate = self
+       
     }
     
 
@@ -59,27 +63,53 @@ class EarthImageViewController: UIViewController {
         
         latitude = Float(latTextField.text!)
         longitude = Float(longTextField.text!)
-        networkRequest()
         
+        do {
+            
+          try networkRequest()
+        } catch NasaErrors.networkError {
+            
+            print("no internet dude")
+            
+        } catch NasaErrors.invalidData {
+            print("wrong data dummy")
+        } catch {}
     }
     
-    func networkRequest() {
+    func networkRequest() throws {
         
         if latTextField.text == "" || longTextField.text == "" || latitude == nil || longitude == nil {
             
-            print("enter something doofus!")
+            let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
+                
+            })
+            
+            self.present(alert, animated: true, completion: nil)
             
         } else {
         networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
+            
          
             if let fetchedInfo = fetchedInfo {
+                
                 self.earthPhoto = fetchedInfo
-            }
+            
             OperationQueue.main.addOperation {
                 Manager.shared.loadImage(with: URL(string: self.earthPhoto.url)!, into: self.imageView)
             }
-   
+            } else {
+                
+                let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
+                    
+                })
+                
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     )}
     }
@@ -92,6 +122,15 @@ extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
         longitude = Float(location.coordinate.longitude)
         latTextField.text = "\(location.coordinate.latitude)"
         longTextField.text = "\(location.coordinate.longitude)"
-        networkRequest()
+        do {
+            
+            try networkRequest()
+        } catch NasaErrors.networkError {
+            
+            print("no internet dude")
+            
+        } catch NasaErrors.invalidData {
+            print("wrong data dummy")
+        } catch {}
     }
 }

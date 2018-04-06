@@ -16,7 +16,7 @@ class NetworkManager {
     var marsRoverUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key="
     var earthUrl = "https://api.nasa.gov/planetary/earth/imagery/"
     
-    func fetchMarsRover(completion: @escaping ([MarsPhoto]?, Error?)-> Void) {
+    func fetchMarsRover(completion: @escaping ([MarsPhoto]?, NasaErrors?)-> Void) {
         
         let url = "\(marsRoverUrl)\(apiKey)"
         
@@ -28,6 +28,8 @@ class NetworkManager {
             guard let responseData = data else {
                 
                 print("no data!")
+                
+                completion(nil, .networkError)
                 return
             }
             
@@ -40,12 +42,14 @@ class NetworkManager {
             } else {
                 
                 print("not decoded properly")
+                
+                completion(nil, .invalidData)
             }
 
         } .resume()
     }
     
-    func fetchEarthImage(latitude: Float, longitude: Float, completion: @escaping (EarthImage?, Error?) -> Void) {
+    func fetchEarthImage(latitude: Float, longitude: Float, completion: @escaping (EarthImage?, NasaErrors?) -> Void) {
     
     
         let url = "\(earthUrl)?lon=\(longitude)&lat=\(latitude)&date=2014-02-01&cloud_score=false&api_key=\(apiKey)"
@@ -58,12 +62,10 @@ class NetworkManager {
             guard let responseData = data else {
                 
                 print("no data for earth api!")
+                 completion(nil, .networkError)
                 return
             }
-            
-            print(url)
-            
-         
+
             let decoder = JSONDecoder()
             if let earthImage = try? decoder.decode(EarthImage.self, from: responseData){
             
@@ -73,6 +75,7 @@ class NetworkManager {
             } else {
                 
                 print("earth photo not decoded properly")
+                 completion(nil, .invalidData)
             }
             
         } .resume()
@@ -97,8 +100,6 @@ class NetworkManager {
             
             if let apodImage = try? decoder.decode(ApodImage.self, from: responseData) {
                 
-                print(apodImage.hdurl)
-                print(apodImage.title)
                 completion(apodImage, nil)
             } else {
                 print("APOD not decoded properly")
