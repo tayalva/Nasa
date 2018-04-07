@@ -18,10 +18,9 @@ class MarsViewController: UIViewController {
     var isDoneLoading = false
     var cellIndex: Int!
 
-    @IBOutlet weak var marsImage: UIImageView!
-    @IBOutlet weak var marsImage2: UIImageView!
-    @IBOutlet weak var marsImage3: UIImageView!
-    @IBOutlet weak var marsImage4: UIImageView!
+   
+
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -45,14 +44,17 @@ class MarsViewController: UIViewController {
             if let fetchedInfo = fetchedInfo {
                 
                 self.marsArray = fetchedInfo
-            }
+            
             OperationQueue.main.addOperation {
-              
+              self.collectionView.isHidden = false 
                 self.isDoneLoading = true
                 self.collectionView.reloadData()
             }
             
-            
+            } else {
+                
+                self.collectionView.isHidden = true
+            }
         }
     }
 

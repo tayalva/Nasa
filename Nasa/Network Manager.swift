@@ -29,6 +29,8 @@ class NetworkManager {
                 
                 print("no data!")
                 
+                completion(nil, error)
+                
                
                 return
             }
@@ -62,6 +64,7 @@ class NetworkManager {
             guard let responseData = data else {
                 
                 print("no data for earth api!")
+                completion(nil, error)
                 
                 return
             }

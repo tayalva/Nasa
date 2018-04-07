@@ -98,7 +98,7 @@ class EarthImageViewController: UIViewController {
                     
                 
                 
-                let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ruh Roh!", message: "Something went wrong. Check your internet connection or make sure you entered in valid coordinates/search above for an address!", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
                     

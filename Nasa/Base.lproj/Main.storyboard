@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,6 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pur-9f-1XA">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="614"/>
+                                        </imageView>
                                         <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ9-PM-jSo">
                                             <rect key="frame" x="8" y="823" width="752" height="193"/>
                                             <color key="backgroundColor" red="0.043915465474128723" green="0.011639841832220554" blue="0.011390644125640392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,9 +40,6 @@
                                                 <action selector="earthButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uS-33-PBW"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pur-9f-1XA">
-                                            <rect key="frame" x="-24" y="-8" width="768" height="614"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXh-i7-kMi">
                                             <rect key="frame" x="18" y="568" width="742" height="30"/>
                                             <constraints>
@@ -85,18 +84,12 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved To Camera Roll!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWf-Oi-X3n">
                                             <rect key="frame" x="247" y="289" width="274" height="36"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="274" id="CLc-Df-aRl"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danger Will Robinson! You aren't connected to the internet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBe-qF-Rlo">
                                             <rect key="frame" x="168" y="251" width="432" height="72"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="432" id="rOQ-zv-eHI"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -159,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492.96875" y="468.74999999999994"/>
+            <point key="canvasLocation" x="473" y="475"/>
         </scene>
         <!--Mars View Controller-->
         <scene sceneID="pUc-Hv-GXj">
@@ -181,29 +174,33 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Card Maker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRf-2F-lwO">
                                             <rect key="frame" x="138" y="82" width="492" height="90"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="492" id="h3a-W8-9V1"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="75"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Mars Rover photo from below to begin." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-1D-oh7">
                                             <rect key="frame" x="169" y="168" width="431" height="20.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="431" id="9sf-aP-Cee"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <color key="textColor" red="0.80719864370000005" green="0.827434063" blue="0.83573919529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danger Will Robinson! You aren't connected to the internet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-Ix-PKO">
+                                            <rect key="frame" x="168" y="476" width="432" height="72"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="SGy-Ix-PKO" firstAttribute="top" secondItem="2D1-1D-oh7" secondAttribute="bottom" constant="287.5" id="5Xz-gJ-RIx"/>
                                         <constraint firstItem="2D1-1D-oh7" firstAttribute="top" secondItem="IAg-7n-UCk" secondAttribute="top" constant="168" id="9Io-FA-hAp"/>
                                         <constraint firstAttribute="trailing" secondItem="JRf-2F-lwO" secondAttribute="trailing" constant="138" id="DaV-RH-ELb"/>
+                                        <constraint firstItem="SGy-Ix-PKO" firstAttribute="leading" secondItem="IAg-7n-UCk" secondAttribute="leading" constant="168" id="SXO-Vm-tAC"/>
                                         <constraint firstItem="JRf-2F-lwO" firstAttribute="leading" secondItem="IAg-7n-UCk" secondAttribute="leading" constant="138" id="bjt-oR-oyC"/>
+                                        <constraint firstAttribute="bottom" secondItem="SGy-Ix-PKO" secondAttribute="bottom" constant="476" id="dVq-kb-l47"/>
                                         <constraint firstItem="2D1-1D-oh7" firstAttribute="leading" secondItem="IAg-7n-UCk" secondAttribute="leading" constant="169" id="dlh-FX-FRn"/>
                                         <constraint firstItem="JRf-2F-lwO" firstAttribute="top" secondItem="IAg-7n-UCk" secondAttribute="top" constant="82" id="fG1-8F-td1"/>
+                                        <constraint firstAttribute="trailing" secondItem="SGy-Ix-PKO" secondAttribute="trailing" constant="168" id="hSQ-sF-fQI"/>
                                         <constraint firstAttribute="trailing" secondItem="2D1-1D-oh7" secondAttribute="trailing" constant="168" id="yOq-Ea-Yiv"/>
                                     </constraints>
                                 </view>
@@ -265,6 +262,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="eNb-Fe-sOq" id="IEe-ps-mwP"/>
+                        <outlet property="errorLabel" destination="SGy-Ix-PKO" id="0sJ-4X-YYP"/>
                         <segue destination="tr0-IY-RkH" kind="show" identifier="marsPhotoDetailSegue" id="Vyv-WZ-zCB"/>
                     </connections>
                 </viewController>
@@ -326,9 +324,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for an address above, or manually enter in latitude and longitude coordinates below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFo-ho-tsO">
                                             <rect key="frame" x="169" y="349" width="431" height="41"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="431" id="baW-Mz-0QD"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <color key="textColor" red="0.80719864370000005" green="0.827434063" blue="0.83573919529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -425,7 +420,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEX-sN-Dch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962" y="809"/>
+            <point key="canvasLocation" x="1936" y="809"/>
         </scene>
         <!--Mars Detail View Controller-->
         <scene sceneID="k4g-qp-IHk">
@@ -536,7 +531,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soY-Gd-dZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="469"/>
+            <point key="canvasLocation" x="-178" y="475"/>
         </scene>
     </scenes>
     <resources>

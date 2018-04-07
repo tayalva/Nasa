@@ -30,11 +30,15 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-   
-       errorLabel.isHidden = true
-        networkRequest()
+        errorLabel.isHidden = true
         
-     
+      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    
+        
+        networkRequest()
     }
 
     @IBAction func saveImageButton(_ sender: Any) {
@@ -106,21 +110,25 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             
             OperationQueue.main.addOperation {
                 
-                self.errorLabel.isHidden = true
+             self.errorLabel.isHidden = true
                 self.photoLabel.isHidden = false
-                self.savePhotoButton.isHidden = false
-                self.emailPhotoButton.isHidden = false 
+               self.savePhotoButton.isHidden = false
+              
+               self.emailPhotoButton.isHidden = false
                 Manager.shared.loadImage(with: URL(string: self.apodPhoto.hdurl)!, into: self.imageView)
                 self.photoLabel.text = self.apodPhoto.title
             }
                 
                 
             } else {
-                self.photoLabel.isHidden = true
-                self.errorLabel.isHidden = false
-                self.savePhotoButton.isHidden = true
-                self.emailPhotoButton.isHidden = true
                 
+                OperationQueue.main.addOperation {
+
+               self.photoLabel.isHidden = true
+              self.errorLabel.isHidden = false
+              self.savePhotoButton.isHidden = true
+            self.emailPhotoButton.isHidden = true
+                }
             }
             
         }
