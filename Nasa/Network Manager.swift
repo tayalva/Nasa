@@ -16,7 +16,7 @@ class NetworkManager {
     var marsRoverUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key="
     var earthUrl = "https://api.nasa.gov/planetary/earth/imagery/"
     
-    func fetchMarsRover(completion: @escaping ([MarsPhoto]?, NasaErrors?)-> Void) {
+    func fetchMarsRover(completion: @escaping ([MarsPhoto]?, Error?)-> Void) {
         
         let url = "\(marsRoverUrl)\(apiKey)"
         
@@ -29,7 +29,7 @@ class NetworkManager {
                 
                 print("no data!")
                 
-                completion(nil, .networkError)
+               
                 return
             }
             
@@ -43,13 +43,13 @@ class NetworkManager {
                 
                 print("not decoded properly")
                 
-                completion(nil, .invalidData)
+               
             }
 
         } .resume()
     }
     
-    func fetchEarthImage(latitude: Float, longitude: Float, completion: @escaping (EarthImage?, NasaErrors?) -> Void) {
+    func fetchEarthImage(latitude: Float, longitude: Float, completion: @escaping (EarthImage?, Error?) -> Void) {
     
     
         let url = "\(earthUrl)?lon=\(longitude)&lat=\(latitude)&date=2014-02-01&cloud_score=false&api_key=\(apiKey)"
@@ -62,7 +62,7 @@ class NetworkManager {
             guard let responseData = data else {
                 
                 print("no data for earth api!")
-                 completion(nil, .networkError)
+                
                 return
             }
 
@@ -75,7 +75,8 @@ class NetworkManager {
             } else {
                 
                 print("earth photo not decoded properly")
-                 completion(nil, .invalidData)
+                completion(nil, error)
+           
             }
             
         } .resume()
@@ -93,6 +94,8 @@ class NetworkManager {
             
             guard let responseData = data else {
                 print("no data from APOD")
+                
+                completion(nil, error)
                 return
             }
             

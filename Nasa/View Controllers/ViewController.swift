@@ -22,13 +22,16 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var photoLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var savedLabel: UILabel!
+    @IBOutlet weak var savePhotoButton: UIButton!
+    @IBOutlet weak var emailPhotoButton: UIButton!
     
-
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
    
-       
+       errorLabel.isHidden = true
         networkRequest()
         
      
@@ -53,7 +56,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBAction func emailButton(_ sender: Any) {
         
         if !MFMailComposeViewController.canSendMail() {
-            print("Darn. You can't send mail from this device")
             
             let alert = UIAlertController(title: "Ruh Roh!", message: "Your device doesn't allow for email to be sent!", preferredStyle: .alert)
             
@@ -101,15 +103,25 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             if let fetchedInfo = fetchedInfo {
                 
                 self.apodPhoto = fetchedInfo
-            }
+            
             OperationQueue.main.addOperation {
                 
+                self.errorLabel.isHidden = true
+                self.photoLabel.isHidden = false
+                self.savePhotoButton.isHidden = false
+                self.emailPhotoButton.isHidden = false 
                 Manager.shared.loadImage(with: URL(string: self.apodPhoto.hdurl)!, into: self.imageView)
                 self.photoLabel.text = self.apodPhoto.title
-               
-            
             }
-            
+                
+                
+            } else {
+                self.photoLabel.isHidden = true
+                self.errorLabel.isHidden = false
+                self.savePhotoButton.isHidden = true
+                self.emailPhotoButton.isHidden = true
+                
+            }
             
         }
     }

@@ -38,8 +38,8 @@
                                                 <action selector="earthButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9uS-33-PBW"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pur-9f-1XA">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="614"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pur-9f-1XA">
+                                            <rect key="frame" x="-24" y="-8" width="768" height="614"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXh-i7-kMi">
                                             <rect key="frame" x="18" y="568" width="742" height="30"/>
@@ -92,15 +92,26 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danger Will Robinson! You aren't connected to the internet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBe-qF-Rlo">
+                                            <rect key="frame" x="168" y="251" width="432" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="432" id="rOQ-zv-eHI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="pur-9f-1XA" firstAttribute="top" secondItem="wOf-Bh-eyR" secondAttribute="top" id="2wU-Mi-3oa"/>
                                         <constraint firstItem="ydr-FK-Bd2" firstAttribute="top" secondItem="ZCv-1U-6fN" secondAttribute="bottom" constant="16" id="5ab-Fb-5BA"/>
                                         <constraint firstItem="ydr-FK-Bd2" firstAttribute="top" secondItem="pur-9f-1XA" secondAttribute="bottom" constant="8" id="8MZ-7c-6WR"/>
+                                        <constraint firstAttribute="trailing" secondItem="JBe-qF-Rlo" secondAttribute="trailing" constant="168" id="8fS-dw-MSL"/>
                                         <constraint firstItem="MZ9-PM-jSo" firstAttribute="top" secondItem="ydr-FK-Bd2" secondAttribute="bottom" constant="8" id="8ne-lD-b3g"/>
                                         <constraint firstAttribute="bottom" secondItem="MZ9-PM-jSo" secondAttribute="bottom" constant="8" id="KDf-9j-UlQ"/>
                                         <constraint firstAttribute="bottom" secondItem="pur-9f-1XA" secondAttribute="bottom" constant="410" id="KIw-CQ-tb3"/>
                                         <constraint firstAttribute="trailing" secondItem="cXh-i7-kMi" secondAttribute="trailing" constant="8" id="Q01-0n-nyu"/>
+                                        <constraint firstItem="JBe-qF-Rlo" firstAttribute="top" secondItem="wOf-Bh-eyR" secondAttribute="top" constant="251" id="SSY-Gb-b4k"/>
                                         <constraint firstAttribute="trailing" secondItem="ydr-FK-Bd2" secondAttribute="trailing" constant="8" id="Sor-kW-tGa"/>
                                         <constraint firstItem="YpE-sR-gNU" firstAttribute="leading" secondItem="ZCv-1U-6fN" secondAttribute="trailing" constant="8" id="VgS-Ys-IBq"/>
                                         <constraint firstItem="ydr-FK-Bd2" firstAttribute="top" secondItem="YpE-sR-gNU" secondAttribute="bottom" constant="24" id="W28-V1-yXq"/>
@@ -111,6 +122,7 @@
                                         <constraint firstItem="MZ9-PM-jSo" firstAttribute="leading" secondItem="wOf-Bh-eyR" secondAttribute="leading" constant="8" id="l7I-9z-lPX"/>
                                         <constraint firstItem="JWf-Oi-X3n" firstAttribute="top" secondItem="wOf-Bh-eyR" secondAttribute="top" constant="289" id="lLg-9Z-dTP"/>
                                         <constraint firstAttribute="trailing" secondItem="MZ9-PM-jSo" secondAttribute="trailing" constant="8" id="lxp-qA-bwX"/>
+                                        <constraint firstItem="JBe-qF-Rlo" firstAttribute="leading" secondItem="wOf-Bh-eyR" secondAttribute="leading" constant="168" id="nfs-g4-bHF"/>
                                         <constraint firstItem="pur-9f-1XA" firstAttribute="leading" secondItem="wOf-Bh-eyR" secondAttribute="leading" id="p9d-5E-OgQ"/>
                                         <constraint firstItem="cXh-i7-kMi" firstAttribute="leading" secondItem="wOf-Bh-eyR" secondAttribute="leading" constant="18" id="sTK-9e-mro"/>
                                         <constraint firstAttribute="trailing" secondItem="pur-9f-1XA" secondAttribute="trailing" id="t40-Hw-vmz"/>
@@ -135,8 +147,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="RCi-df-pVg"/>
                     <connections>
+                        <outlet property="emailPhotoButton" destination="ZCv-1U-6fN" id="bwM-LB-wvs"/>
+                        <outlet property="errorLabel" destination="JBe-qF-Rlo" id="adu-mP-0we"/>
                         <outlet property="imageView" destination="pur-9f-1XA" id="sWJ-4H-vuj"/>
                         <outlet property="photoLabel" destination="cXh-i7-kMi" id="eYo-W4-A1O"/>
+                        <outlet property="savePhotoButton" destination="YpE-sR-gNU" id="ZVf-Z5-2hs"/>
                         <outlet property="savedLabel" destination="JWf-Oi-X3n" id="f2v-ti-cyC"/>
                         <segue destination="7Cf-LJ-Awy" kind="show" identifier="showMarsViewController" id="SOv-TN-GbS"/>
                         <segue destination="I66-tJ-Del" kind="show" identifier="showEarthImageViewController" id="mVe-bq-IVu"/>

@@ -73,7 +73,7 @@ class EarthImageViewController: UIViewController {
             
             let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
                 
             })
             
@@ -83,17 +83,6 @@ class EarthImageViewController: UIViewController {
         networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
             
-            if let _ = error {
-                
-                let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
-                    
-                })
-                
-                self.present(alert, animated: true, completion: nil)
-                
-            }
             
  
             if let fetchedInfo = fetchedInfo {
@@ -105,15 +94,21 @@ class EarthImageViewController: UIViewController {
             }
             } else {
                 
+                OperationQueue.main.addOperation {
+                    
+                
+                
                 let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
+                alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
                     
                 })
                 
                 self.present(alert, animated: true, completion: nil)
+                }
             }
         }
+        
     )}
     }
 }
