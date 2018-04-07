@@ -117,13 +117,14 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
                self.emailPhotoButton.isHidden = false
                 Manager.shared.loadImage(with: URL(string: self.apodPhoto.hdurl)!, into: self.imageView)
                 self.photoLabel.text = self.apodPhoto.title
+                print("this is: \(self.apodPhoto.title)")
             }
                 
                 
             } else {
                 
                 OperationQueue.main.addOperation {
-
+                    print("this is: \(self.apodPhoto?.title)")
                self.photoLabel.isHidden = true
               self.errorLabel.isHidden = false
               self.savePhotoButton.isHidden = true
