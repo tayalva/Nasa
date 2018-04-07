@@ -64,19 +64,10 @@ class EarthImageViewController: UIViewController {
         latitude = Float(latTextField.text!)
         longitude = Float(longTextField.text!)
         
-        do {
-            
-          try networkRequest()
-        } catch NasaErrors.networkError {
-            
-            print("no internet dude")
-            
-        } catch NasaErrors.invalidData {
-            print("wrong data dummy")
-        } catch {}
+        networkRequest()
     }
     
-    func networkRequest() throws {
+    func networkRequest() {
         
         if latTextField.text == "" || longTextField.text == "" || latitude == nil || longitude == nil {
             
@@ -92,7 +83,19 @@ class EarthImageViewController: UIViewController {
         networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
             
-         
+            if let _ = error {
+                
+                let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Dang", style: .default) { action in
+                    
+                })
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            
+ 
             if let fetchedInfo = fetchedInfo {
                 
                 self.earthPhoto = fetchedInfo
@@ -122,15 +125,6 @@ extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
         longitude = Float(location.coordinate.longitude)
         latTextField.text = "\(location.coordinate.latitude)"
         longTextField.text = "\(location.coordinate.longitude)"
-        do {
-            
-            try networkRequest()
-        } catch NasaErrors.networkError {
-            
-            print("no internet dude")
-            
-        } catch NasaErrors.invalidData {
-            print("wrong data dummy")
-        } catch {}
-    }
+        networkRequest()
+        }
 }
