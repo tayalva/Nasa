@@ -33,7 +33,7 @@ class MarsViewController: UIViewController {
     }
 
 
-    
+ // Network request to display an array of the most recent mars rover photos (displayed in a collection view)
   
     func networkRequest() {
         
@@ -60,12 +60,8 @@ class MarsViewController: UIViewController {
 
     
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-        
+
         if segue.identifier == "marsPhotoDetailSegue" {
         
             let detailVC = segue.destination as! MarsDetailViewController
@@ -78,6 +74,10 @@ class MarsViewController: UIViewController {
     
 
 }
+
+
+// Collection view delegate methods
+
 
 extension MarsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -94,6 +94,8 @@ extension MarsViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         if isDoneLoading == true {
             let item = marsArray[indexPath.row].imageUrl
+            
+// downloads image from URL into the image view via the Nuke dependecy
         Manager.shared.loadImage(with: URL(string: item)!, into: cell.imageView)
         }
  

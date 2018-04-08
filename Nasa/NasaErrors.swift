@@ -8,6 +8,7 @@
 
 import Foundation
 
+// errors
 
 enum NasaErrors: Error {
     

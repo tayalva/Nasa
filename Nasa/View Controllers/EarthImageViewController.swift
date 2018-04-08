@@ -11,11 +11,7 @@ import Nuke
 import MapKit
 import CoreLocation
 
-protocol HandleMapSearch {
-    
-   func passCoordinates(_ location: MKPlacemark)
-    
-}
+
 
 class EarthImageViewController: UIViewController {
     
@@ -31,6 +27,7 @@ class EarthImageViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     
+// Search bar setup/UI and delegate set up
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,60 +49,39 @@ class EarthImageViewController: UIViewController {
          locationSearchTable.handleMapSearchDelegate = self
         latTextField.keyboardType = .decimalPad
         longTextField.keyboardType = .decimalPad
-        
-        
-       
+
     }
     
-
+// triggers a network request with the latitude and longitude from the textfields (address search also populates these fields, why not? :) )
     @IBAction func locationGoButton(_ sender: Any) {
-        
-        
-        
         latitude = Float(latTextField.text!)
         longitude = Float(longTextField.text!)
-        
         networkRequest()
     }
+
+// network request/error handling for improper usage or invalid data
     
     func networkRequest() {
         
         if latTextField.text == "" || longTextField.text == "" || latitude == nil || longitude == nil {
-            
             let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-                
-            })
-            
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in })
             self.present(alert, animated: true, completion: nil)
             
         } else {
+            
         networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
-            
-            print(self.latitude)
-            print(self.longitude)
- 
             if let fetchedInfo = fetchedInfo {
-                
                 self.earthPhoto = fetchedInfo
-            
             OperationQueue.main.addOperation {
                 Manager.shared.loadImage(with: URL(string: self.earthPhoto.url)!, into: self.imageView)
             }
             } else {
                 
                 OperationQueue.main.addOperation {
-                    
-                
-                
                 let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-                    
-                })
-                
+                alert.addAction(UIAlertAction(title: "OK", style: .default) { action in })
                 self.present(alert, animated: true, completion: nil)
                 }
             }
@@ -114,6 +90,8 @@ class EarthImageViewController: UIViewController {
     )}
     }
 }
+
+// delegate that passes information from the search table back to the earth image view controller
 
 extension EarthImageViewController: HandleMapSearch, CLLocationManagerDelegate {
     

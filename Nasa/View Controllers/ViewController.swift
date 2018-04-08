@@ -41,6 +41,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         networkRequest()
     }
 
+// Saves the APOD Image to the devices camera roll
+    
     @IBAction func saveImageButton(_ sender: Any) {
         
         let imageData = UIImagePNGRepresentation(imageView.image!)
@@ -56,6 +58,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
     }
     
+// If the device has email capabilities, this will present the email app with a new email started (with the image attached).
     
     @IBAction func emailButton(_ sender: Any) {
         
@@ -81,10 +84,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         }
         
     }
-    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
+    
+// segues when the appropriate button is pushed
     
     
     @IBAction func marsButton(_ sender: Any) {
@@ -98,23 +102,21 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         performSegue(withIdentifier: "showEarthImageViewController", sender: nil)
     }
     
+// Network requests for the APOD API
     
     func networkRequest() {
-        
-        
+ 
         networkCall.fetchApodImage { ( fetchedInfo, error) in
-            
             if let fetchedInfo = fetchedInfo {
-                
                 self.apodPhoto = fetchedInfo
             
             OperationQueue.main.addOperation {
                 
              self.errorLabel.isHidden = true
                 self.photoLabel.isHidden = false
-               self.savePhotoButton.isHidden = false
+                self.savePhotoButton.isHidden = false
               
-               self.emailPhotoButton.isHidden = false
+                self.emailPhotoButton.isHidden = false
                 Manager.shared.loadImage(with: URL(string: self.apodPhoto.hdurl)!, into: self.imageView)
                 self.photoLabel.text = self.apodPhoto.title
                 print("this is: \(self.apodPhoto.title)")

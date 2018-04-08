@@ -17,7 +17,7 @@ class LocationSearchTable: UITableViewController {
     var handleMapSearchDelegate: HandleMapSearch? = nil
     
     
-    // This method parses and formats location names/address for search queries
+// This method parses and formats location names/address for search queries
     
     func parseAddress(selectedItem: MKPlacemark) -> String {
         // space
@@ -60,6 +60,8 @@ extension LocationSearchTable: UISearchResultsUpdating {
     }
 }
 
+// delegate methods
+
 extension LocationSearchTable {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,8 +81,6 @@ extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.passCoordinates(selectedItem)
-        print(selectedItem)
-        print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         dismiss(animated: true, completion: nil)
     }
 }

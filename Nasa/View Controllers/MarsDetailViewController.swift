@@ -17,19 +17,20 @@ class MarsDetailViewController: UIViewController, MFMailComposeViewControllerDel
     
     
     var marsArray: [MarsPhoto] = []
-    
     var index: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    textField.delegate = self
-        
+        textField.delegate = self
         let item = marsArray[index].imageUrl
+        
+  // downloads image from URL into the image view via the Nuke dependecy
         Manager.shared.loadImage(with: URL(string: item)!, into: imageView)
     }
 
-
+// This button adds the text from the textfield onto the image
+    
     @IBAction func addTextButton(_ sender: Any) {
         let item = marsArray[index].imageUrl
         Manager.shared.loadImage(with: URL(string: item)!, into: imageView)
