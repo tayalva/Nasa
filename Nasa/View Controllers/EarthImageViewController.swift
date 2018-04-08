@@ -53,6 +53,7 @@ class EarthImageViewController: UIViewController {
         latTextField.keyboardType = .decimalPad
         longTextField.keyboardType = .decimalPad
         
+        
        
     }
     
@@ -83,7 +84,8 @@ class EarthImageViewController: UIViewController {
         networkCall.fetchEarthImage(latitude: latitude, longitude: longitude, completion: {
             (fetchedInfo, error) in
             
-            
+            print(self.latitude)
+            print(self.longitude)
  
             if let fetchedInfo = fetchedInfo {
                 
@@ -98,7 +100,7 @@ class EarthImageViewController: UIViewController {
                     
                 
                 
-                let alert = UIAlertController(title: "Ruh Roh!", message: "Something went wrong. Check your internet connection or make sure you entered in valid coordinates/search above for an address!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ruh Roh!", message: "Please enter in valid coordinates, or search above for an address!", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
                     
